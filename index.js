@@ -302,7 +302,7 @@ function generatePDFInventario() {
   const table = document.querySelector("table");
   const rows = table.querySelectorAll("tr");
   // Extraer datos de la tabla
-  const data = [];
+  /*const data = [];
   rows.forEach((row, rowIndex) => {
     const cells = row.querySelectorAll("td, th");
     const rowData = [];
@@ -318,8 +318,35 @@ function generatePDFInventario() {
         data.push(rowData)
     }
   });
+*/
+
+  const data = [];
+  rows.forEach((row, rowIndex) => {
+    const cells = row.querySelectorAll("td, th");
+    console.log("cells", cells);
+
+    const rowData = [];
+
+    cells.forEach((cell, index) => {
+      const checkboxes = cell.querySelectorAll("input[type='checkbox']");
+      let checkedValues = "";
+      if (index < 3) {
+        checkedValues = cells[index]?.innerText;
+      } else {
+        checkboxes.forEach((checkbox) => {
+          checkedValues = [checkbox.checked ? "X" : ""];
+        });
+      }
+
+      rowData.push(checkedValues);
+    });
+
+    console.log("CELDAS", rowData); // Mostrar los checkboxes
+    data.push(rowData);
+  });
+  console.log("TODOOOO", data); // Mostrar los checkboxes
+
   // Dibujar la tabla en el PDF
-  
 
   // Formatear el PDF
   doc.setFont("helvetica", "bold");
@@ -402,8 +429,10 @@ function generatePDFInventario() {
   doc.text("Checklist del Vehículo", 10, y);
   y += 10;
 
+  console.log("ANTES DE HEAD", [data[0]]);
+  console.log("ANTES DE IMPRIMIR", data.slice(1));
   doc.autoTable({
-    head: [data[0]], // Primera fila como encabezado
+    head: [["Item", "Sistema", "Tarea", "B", "M", "R", "C"]], // Primera fila como encabezado
     body: data.slice(1), // Resto de filas como contenido
     startY: y,
     theme: "grid",
@@ -416,13 +445,12 @@ function generatePDFInventario() {
     },
   });
 
-
-  doc.setFont("helvetica", "normal");
-  doc.text(`Observaciones: ${observacionesChecklist}`, 10, y, {
+  doc.setFont("helvetica", "bold");
+  y += 40;
+  doc.text(`Observaciones del checklist: ${observacionesChecklist}`, 10, y, {
     maxWidth: 180,
   });
-  y += 20;
-
+  y += 30;
   doc.setFont("helvetica", "bold");
   doc.text("Firmas", 10, y);
   y += 10;
