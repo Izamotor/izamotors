@@ -1,0 +1,185 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #d32f2f;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b71c1c;
+}
+
+/* Inventario y Check List */
+#inventario.formulario,
+#checklist.formulario {
+    display: none; /* Se oculta por defecto */
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%; /* Ajuste para pantallas más pequeñas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#inventario.formulario.active,
+#checklist.formulario.active {
+    display: block; /* Se muestra el formulario activo */
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 100px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    display: block;
+    color: black;  /* Cambiado a negro para mejor visibilidad */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+
+/* Colores para los checkbox */
+input[type="checkbox"].b:checked {
+    background-color: green; /* Verde */
+}
+
+input[type="checkbox"].m:checked {
+    background-color: yellow; /* Amarillo */
+}
+
+input[type="checkbox"].r:checked {
+    background-color: blue; /* Azul */
+}
+
+input[type="checkbox"].c:checked {
+    background-color: red; /* Rojo */
+}
+
+/* Estilos para Daños Preexistentes del Vehículo */
+.daños-preexistentes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start; /* Alinea al inicio */
+    margin-top: 20px;
+}
+
+.daños-preexistentes img {
+    max-width: 300px;
+    margin-right: 20px; /* Espacio a la derecha de la imagen */
+}
+
+.daños-preexistentes .textareas {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Alinear en columna */
+    gap: 10px;
+}
+
+.daños-preexistentes .textareas label {
+    margin-top: 10px;
+}
+
+.daños-preexistentes .textareas textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .daños-preexistentes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .daños-preexistentes img {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    #inventario.formulario,
+    #checklist.formulario {
+        width: 80%;
+    }
+}
+
+@media (min-width: 900px) {
+    #inventario.formulario,
+    #checklist.formulario {
+        width: 70%;
+    }
+}

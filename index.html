@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZA MOTORS</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>IZA MOTORS</h1>
+    </header>
+
+    
+    <form>
+    <!-- Inventario -->
+    <section id="inventario" class="formulario active">
+        <h2>Orden de Servicio - Inventario</h2>
+        
+            <label for="numero_folio">Número de Folio:</label>
+            <input type="text" id="numero_folio" name="numero_folio">
+
+            <label for="fecha">FECHA:</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <h3>Datos del Cliente</h3>
+            <label for="cliente_nombre">Nombre:</label>
+            <input type="text" id="cliente_nombre" name="cliente_nombre">
+
+            <label for="cliente_telefono">Teléfono:</label>
+            <input type="text" id="cliente_telefono" name="cliente_telefono">
+
+            <label for="cliente_email">Email:</label>
+            <input type="email" id="cliente_email" name="cliente_email">
+
+            <h3>Datos del Vehículo</h3>
+            <label for="marca">MARCA:</label>
+            <select id="marca" name="marca" onchange="actualizarModelos()">
+                <option value="Toyota">Toyota</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Chevrolet">Chevrolet (GM)</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="DFSK">DFSK</option>
+                <!-- Agrega más marcas según sea necesario -->
+            </select>
+
+            <label for="modelo">MODELO:</label>
+            <select id="modelo" name="modelo"></select>
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color">
+            
+            <label for="año">AÑO:</label>
+            <input type="text" id="año" name="año">
+
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" name="placa">
+
+            <label for="kilometraje">Kilometraje:</label>
+            <input type="text" id="kilometraje" name="kilometraje">
+
+            <h3>Trabajo a Realizar</h3>
+            <textarea id="trabajo_realizar" name="trabajo_realizar"></textarea>
+
+            <h3>Inventario</h3>
+            <label><input type="checkbox" name="gato"> Gato</label>
+            <label><input type="checkbox" name="herramientas"> Herramientas</label>
+            <label><input type="checkbox" name="triangulos"> Triángulos</label>
+            <label><input type="checkbox" name="tapetes"> Tapetes</label>
+            <label><input type="checkbox" name="llanta"> Llanta Refacción</label>
+            <label><input type="checkbox" name="extintor"> Extintor</label>
+            <label><input type="checkbox" name="antena"> Antena</label>
+            <label><input type="checkbox" name="emblemas"> Emblemas</label>
+            <label><input type="checkbox" name="tapones_rueda"> Tapones de rueda</label>
+            <label><input type="checkbox" name="cables"> Cables</label>
+            <label><input type="checkbox" name="estereo"> Estéreo</label>
+            <label><input type="checkbox" name="encendedor"> Encendedor</label>
+
+            <h3>Daños Preexistentes del Vehículo</h3>
+<div class="daños-preexistentes">
+    <!-- Usa la URL de la imagen de Imgur -->
+    <img src="/imagen1.png" alt="Daños del Vehículo">
+    <div class="textareas">
+        <label for="lado_derecho">Lado Derecho:</label>
+        <textarea name="lado_derecho" id="lado_derecho"></textarea>
+
+        <label for="frente">Frente:</label>
+        <textarea name="frente" id="frente"></textarea>
+
+        <label for="detras">Detrás:</label>
+        <textarea name="detras" id="detras"></textarea>
+
+        <label for="lado_izquierdo">Lado Izquierdo:</label>
+        <textarea name="lado_izquierdo" id="lado_izquierdo"></textarea>
+    </div>
+</div>
+
+
+            <h3>Observaciones del inventario</h3>
+            <textarea name="observaciones_adicionales" id="observaciones_adicionales" placeholder="Escriba cualquier observación adicional sobre el vehículo..."></textarea>
+
+            
+        
+    </section>
+
+    <!-- Check List -->
+    <section id="checklist" class="formulario active">
+        <h2>Check List</h2>
+        
+            <p>IZA MOTORS<br>
+            MECÁNICA EN GENERAL - REPUESTOS - MULTIMARCA<br>
+            Av. El Naranjal 159 (Alt. Ovalo Naranjal)<br>
+            Telf: 3866634 Cel: 998101166 / 981417560</p>
+
+            
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Sistema</th>
+                        <th>Tarea</th>
+                        <th>B</th>
+                        <th>M</th>
+                        <th>R</th>
+                        <th>C</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Altas</td>
+                        <td><input type="checkbox" name="b_1" class="b"></td>
+                        <td><input type="checkbox" name="m_1" class="m"></td>
+                        <td><input type="checkbox" name="r_1" class="r"></td>
+                        <td><input type="checkbox" name="c_1" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Bajas</td>
+                        <td><input type="checkbox" name="b_2" class="b"></td>
+                        <td><input type="checkbox" name="m_2" class="m"></td>
+                        <td><input type="checkbox" name="r_2" class="r"></td>
+                        <td><input type="checkbox" name="c_2" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Freno</td>
+                        <td><input type="checkbox" name="b_3" class="b"></td>
+                        <td><input type="checkbox" name="m_3" class="m"></td>
+                        <td><input type="checkbox" name="r_3" class="r"></td>
+                        <td><input type="checkbox" name="c_3" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Estacionamiento</td>
+                        <td><input type="checkbox" name="b_4" class="b"></td>
+                        <td><input type="checkbox" name="m_4" class="m"></td>
+                        <td><input type="checkbox" name="r_4" class="r"></td>
+                        <td><input type="checkbox" name="c_4" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Emergencia</td>
+                        <td><input type="checkbox" name="b_5" class="b"></td>
+                        <td><input type="checkbox" name="m_5" class="m"></td>
+                        <td><input type="checkbox" name="r_5" class="r"></td>
+                        <td><input type="checkbox" name="c_5" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Direccionales</td>
+                        <td><input type="checkbox" name="b_6" class="b"></td>
+                        <td><input type="checkbox" name="m_6" class="m"></td>
+                        <td><input
+type="checkbox" name="r_6" class="r"></td>
+                        <td><input
+type="checkbox" name="c_6" class="c"></td
+                        </tr>
+                         <tr>
+                            <td>7</td>
+                            <td>Sistema Eléctrico</td>
+                        <td>Luces Salón-Cabina</td>
+                        <td><input type="checkbox" name="b_7" class="b"></td>
+                        <td><input type="checkbox" name="m_7" class="m"></td>
+                        <td><input type="checkbox" name="r_7" class="r"></td>
+                        <td><input type="checkbox" name="c_7" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Luces Alarma Retro</td>
+                        <td><input type="checkbox" name="b_8" class="b"></td>
+                        <td><input type="checkbox" name="m_8" class="m"></td>
+                        <td><input type="checkbox" name="r_8" class="r"></td>
+                        <td><input type="checkbox" name="c_8" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Baterías</td>
+                        <td><input type="checkbox" name="b_9" class="b"></td>
+                        <td><input type="checkbox" name="m_9" class="m"></td>
+                        <td><input type="checkbox" name="r_9" class="r"></td>
+                        <td><input type="checkbox" name="c_9" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Bocinas</td>
+                        <td><input type="checkbox" name="b_10" class="b"></td>
+                        <td><input type="checkbox" name="m_10" class="m"></td>
+                        <td><input type="checkbox" name="r_10" class="r"></td>
+                        <td><input type="checkbox" name="c_10" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Limpia Parabrisa</td>
+                        <td><input type="checkbox" name="b_11" class="b"></td>
+                        <td><input type="checkbox" name="m_11" class="m"></td>
+                        <td><input type="checkbox" name="r_11" class="r"></td>
+                        <td><input type="checkbox" name="c_11" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Funcionam. Trico</td>
+                        <td><input type="checkbox" name="b_12" class="b"></td>
+                        <td><input type="checkbox" name="m_12" class="m"></td>
+                        <td><input type="checkbox" name="r_12" class="r"></td>
+                        <td><input type="checkbox" name="c_12" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Sistema Eléctrico</td>
+                        <td>Tablero Fusibles-Relay</td>
+                        <td><input type="checkbox" name="b_13" class="b"></td>
+                        <td><input type="checkbox" name="m_13" class="m"></td>
+                        <td><input type="checkbox" name="r_13" class="r"></td>
+                        <td><input type="checkbox" name="c_13" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Motor</td>
+                        <td>Ruido Extraño</td>
+                        <td><input type="checkbox" name="b_14" class="b"></td>
+                        <td><input type="checkbox" name="m_14" class="m"></td>
+                        <td><input type="checkbox" name="r_14" class="r"></td>
+                        <td><input type="checkbox" name="c_14" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Motor</td>
+                        <td>Nivel Aceite</td>
+                        <td><input type="checkbox" name="b_15" class="b"></td>
+                        <td><input type="checkbox" name="m_15" class="m"></td>
+                        <td><input type="checkbox" name="r_15" class="r"></td>
+                        <td><input type="checkbox" name="c_15" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Motor</td>
+                        <td>Nivel Caja</td>
+                        <td><input type="checkbox" name="b_16" class="b"></td>
+                        <td><input type="checkbox" name="m_16" class="m"></td>
+                        <td><input type="checkbox" name="r_16" class="r"></td>
+                        <td><input type="checkbox" name="c_16" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Motor</td>
+                        <td>Nivel Corona</td>
+                        <td><input type="checkbox" name="b_17" class="b"></td>
+                        <td><input type="checkbox" name="m_17" class="m"></td>
+                        <td><input type="checkbox" name="r_17" class="r"></td>
+                        <td><input type="checkbox" name="c_17" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Motor</td>
+                        <td>Nivel Hidrolina</td>
+                        <td><input type="checkbox" name="b_18" class="b"></td>
+                        <td><input type="checkbox" name="m_18" class="m"></td>
+                        <td><input type="checkbox" name="r_18" class="r"></td>
+                        <td><input type="checkbox" name="c_18" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Motor</td>
+                        <td>Nivel Freno</td>
+                        <td><input type="checkbox" name="b_19" class="b"></td>
+                        <td><input type="checkbox" name="m_19" class="m"></td>
+                        <td><input type="checkbox" name="r_19" class="r"></td>
+                        <td><input type="checkbox" name="c_19" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Motor</td>
+                        <td>Estado Mangueras</td>
+                        <td><input type="checkbox" name="b_20" class="b"></td>
+                        <td><input type="checkbox" name="m_20" class="m"></td>
+                        <td><input type="checkbox" name="r_20" class="r"></td>
+                        <td><input type="checkbox" name="c_20" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Motor</td>
+                        <td>Estado Correas</td>
+                        <td><input type="checkbox" name="b_21" class="b"></td>
+                        <td><input type="checkbox" name="m_21" class="m"></td>
+                        <td><input type="checkbox" name="r_21" class="r"></td>
+                        <td><input type="checkbox" name="c_21" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Motor</td>
+                        <td>Fugas Líquido</td>
+                        <td><input type="checkbox" name="b_22" class="b"></td>
+                        <td><input type="checkbox" name="m_22" class="m"></td>
+                        <td><input type="checkbox" name="r_22" class="r"></td>
+                        <td><input type="checkbox" name="c_22" class="c"></td>
+                    </tr>
+                                <tr>
+                        <td>23</td>
+                        <td>Sistema Freno</td>
+                        <td>Estado de Fajas de Freno</td>
+                        <td><input type="checkbox" name="b_23" class="b"></td>
+                        <td><input type="checkbox" name="m_23" class="m"></td>
+                        <td><input type="checkbox" name="r_23" class="r"></td>
+                        <td><input type="checkbox" name="c_23" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Sistema Freno</td>
+                        <td>Fugas Aire o Líquido</td>
+                        <td><input type="checkbox" name="b_24" class="b"></td>
+                        <td><input type="checkbox" name="m_24" class="m"></td>
+                        <td><input type="checkbox" name="r_24" class="r"></td>
+                        <td><input type="checkbox" name="c_24" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Sistema Freno</td>
+                        <td>Capacidad de Frenado</td>
+                        <td><input type="checkbox" name="b_25" class="b"></td>
+                        <td><input type="checkbox" name="m_25" class="m"></td>
+                        <td><input type="checkbox" name="r_25" class="r"></td>
+                        <td><input type="checkbox" name="c_25" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Sistema Freno</td>
+                        <td>Frenos Motor o Retardador</td>
+                        <td><input type="checkbox" name="b_26" class="b"></td>
+                        <td><input type="checkbox" name="m_26" class="m"></td>
+                        <td><input type="checkbox" name="r_26" class="r"></td>
+                        <td><input type="checkbox" name="c_26" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Sistema Freno</td>
+                        <td>Freno de Estacionamiento</td>
+                        <td><input type="checkbox" name="b_27" class="b"></td>
+                        <td><input type="checkbox" name="m_27" class="m"></td>
+                        <td><input type="checkbox" name="r_27" class="r"></td>
+                        <td><input type="checkbox" name="c_27" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Sistema Freno</td>
+                        <td>Pulmones Freno Delantero</td>
+                        <td><input type="checkbox" name="b_28" class="b"></td>
+                        <td><input type="checkbox" name="m_28" class="m"></td>
+                        <td><input type="checkbox" name="r_28" class="r"></td>
+                        <td><input type="checkbox" name="c_28" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Sistema Freno</td>
+                        <td>Pulmones Freno Posterior</td>
+                        <td><input type="checkbox" name="b_29" class="b"></td>
+                        <td><input type="checkbox" name="m_29" class="m"></td>
+                        <td><input type="checkbox" name="r_29" class="r"></td>
+                        <td><input type="checkbox" name="c_29" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Sistema Freno</td>
+                        <td>Estado Reguladores Freno</td>
+                        <td><input type="checkbox" name="b_30" class="b"></td>
+                        <td><input type="checkbox" name="m_30" class="m"></td>
+                        <td><input type="checkbox" name="r_30" class="r"></td>
+                        <td><input type="checkbox" name="c_30" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Neumático</td>
+                        <td>Delanteros</td>
+                        <td><input type="checkbox" name="b_31" class="b"></td>
+                        <td><input type="checkbox" name="m_31" class="m"></td>
+                        <td><input type="checkbox" name="r_31" class="r"></td>
+                        <td><input type="checkbox" name="c_31" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Neumático</td>
+                        <td>Traseros</td>
+                        <td><input type="checkbox" name="b_32" class="b"></td>
+                        <td><input type="checkbox" name="m_32" class="m"></td>
+                        <td><input type="checkbox" name="r_32" class="r"></td>
+                        <td><input type="checkbox" name="c_32" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Neumático</td>
+                        <td>Respuesto</td>
+                        <td><input type="checkbox" name="b_33" class="b"></td>
+                        <td><input type="checkbox" name="m_33" class="m"></td>
+                        <td><input type="checkbox" name="r_33" class="r"></td>
+                        <td><input type="checkbox" name="c_33" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>Neumático</td>
+                        <td>Revisión Tuercas</td>
+                        <td><input type="checkbox" name="b_34" class="b"></td>
+                        <td><input type="checkbox" name="m_34" class="m"></td>
+                        <td><input type="checkbox" name="r_34" class="r"></td>
+                        <td><input type="checkbox" name="c_34" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Sistema Transmisión</td>
+                        <td>Palanca Selectora Cambios</td>
+                        <td><input type="checkbox" name="b_35" class="b"></td>
+                        <td><input type="checkbox" name="m_35" class="m"></td>
+                        <td><input type="checkbox" name="r_35" class="r"></td>
+                        <td><input type="checkbox" name="c_35" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Sistema Transmisión</td>
+                        <td>Fuga Aceite por la caja</td>
+                        <td><input type="checkbox" name="b_36" class="b"></td>
+                        <td><input type="checkbox" name="m_36" class="m"></td>
+                        <td><input type="checkbox" name="r_36" class="r"></td>
+                        <td><input type="checkbox" name="c_36" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Sistema Transmisión</td>
+                        <td>Ruidos Extraños</td>
+                        <td><input type="checkbox" name="b_37" class="b"></td>
+                        <td><input type="checkbox" name="m_37" class="m"></td>
+                        <td><input type="checkbox" name="r_37" class="r"></td>
+                        <td><input type="checkbox" name="c_37" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Sistema Transmisión</td>
+                        <td>Estado Embrague o Servo</td>
+                        <td><input type="checkbox" name="b_38" class="b"></td>
+                        <td><input type="checkbox" name="m_38" class="m"></td>
+                        <td><input type="checkbox" name="r_38" class="r"></td>
+                        <td><input type="checkbox" name="c_38" class="c"></td>
+                    </tr>
+                     <tr>
+                        <td>39</td>
+                        <td>Sistema Transmisión</td>
+                        <td>Estado Cardán</td>
+                        <td><input type="checkbox" name="b_39" class="b"></td>
+                        <td><input type="checkbox" name="m_39" class="m"></td>
+                        <td><input type="checkbox" name="r_39" class="r"></td>
+                        <td><input type="checkbox" name="c_39" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>Suspensión</td>
+                        <td>Barra Estabilizadora</td>
+                        <td><input type="checkbox" name="b_40" class="b"></td>
+                        <td><input type="checkbox" name="m_40" class="m"></td>
+                        <td><input type="checkbox" name="r_40" class="r"></td>
+                        <td><input type="checkbox" name="c_40" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>Suspensión</td>
+                        <td>Bolsas Aire</td>
+                        <td><input type="checkbox" name="b_41" class="b"></td>
+                        <td><input type="checkbox" name="m_41" class="m"></td>
+                        <td><input type="checkbox" name="r_41" class="r"></td>
+                        <td><input type="checkbox" name="c_41" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>Suspensión</td>
+                        <td>Muelles</td>
+                        <td><input type="checkbox" name="b_42" class="b"></td>
+                        <td><input type="checkbox" name="m_42" class="m"></td>
+                        <td><input type="checkbox" name="r_42" class="r"></td>
+                        <td><input type="checkbox" name="c_42" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>Suspensión</td>
+                        <td>Amortiguadores</td>
+                        <td><input type="checkbox" name="b_43" class="b"></td>
+                        <td><input type="checkbox" name="m_43" class="m"></td>
+                        <td><input type="checkbox" name="r_43" class="r"></td>
+                        <td><input type="checkbox" name="c_43" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>Suspensión</td>
+                        <td>Bocinas Muelle</td>
+                        <td><input type="checkbox" name="b_44" class="b"></td>
+                        <td><input type="checkbox" name="m_44" class="m"></td>
+                        <td><input type="checkbox" name="r_44" class="r"></td>
+                        <td><input type="checkbox" name="c_44" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>Suspensión</td>
+                        <td>Terminales Barra Larga</td>
+                        <td><input type="checkbox" name="b_45" class="b"></td>
+                        <td><input type="checkbox" name="m_45" class="m"></td>
+                        <td><input type="checkbox" name="r_45" class="r"></td>
+                        <td><input type="checkbox" name="c_45" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>Suspensión</td>
+                        <td>Terminales Barra Corta</td>
+                        <td><input type="checkbox" name="b_46" class="b"></td>
+                        <td><input type="checkbox" name="m_46" class="m"></td>
+                        <td><input type="checkbox" name="r_46" class="r"></td>
+                        <td><input type="checkbox" name="c_46" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>Carrocería</td>
+                        <td>Parachoque Delantero</td>
+                        <td><input type="checkbox" name="b_47" class="b"></td>
+                        <td><input type="checkbox" name="m_47" class="m"></td>
+                        <td><input type="checkbox" name="r_47" class="r"></td>
+                        <td><input type="checkbox" name="c_47" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>Carrocería</td>
+                        <td>Parachoque Posterior</td>
+                        <td><input type="checkbox" name="b_48" class="b"></td>
+                        <td><input type="checkbox" name="m_48" class="m"></td>
+                        <td><input type="checkbox" name="r_48" class="r"></td>
+                        <td><input type="checkbox" name="c_48" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td>Carrocería</td>
+                        <td>Estado de Cabina</td>
+                        <td><input type="checkbox" name="b_49" class="b"></td>
+                        <td><input type="checkbox" name="m_49" class="m"></td>
+                        <td><input type="checkbox" name="r_49" class="r"></td>
+                        <td><input type="checkbox" name="c_49" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>Carrocería</td>
+                        <td>Estado del Furgón</td>
+                        <td><input type="checkbox" name="b_50" class="b"></td>
+                        <td><input type="checkbox" name="m_50" class="m"></td>
+                        <td><input type="checkbox" name="r_50" class="r"></td>
+                        <td><input type="checkbox" name="c_50" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>51</td>
+                        <td>Carrocería</td>
+                        <td>Estado de Pasamanos</td>
+                        <td><input type="checkbox" name="b_51" class="b"></td>
+                        <td><input type="checkbox" name="m_51" class="m"></td>
+                        <td><input type="checkbox" name="r_51" class="r"></td>
+                        <td><input type="checkbox" name="c_51" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>Carrocería</td>
+                        <td>Estado de Asientos</td>
+                        <td><input type="checkbox" name="b_52" class="b"></td>
+                        <td><input type="checkbox" name="m_52" class="m"></td>
+                        <td><input type="checkbox" name="r_52" class="r"></td>
+                        <td><input type="checkbox" name="c_52" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>53</td>
+                        <td>Carrocería</td>
+                        <td>Estado de Ventanas</td>
+                        <td><input type="checkbox" name="b_53" class="b"></td>
+                        <td><input type="checkbox" name="m_53" class="m"></td>
+                        <td><input type="checkbox" name="r_53" class="r"></td>
+                        <td><input type="checkbox" name="c_53" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>54</td>
+                        <td>Carrocería</td>
+                        <td>Estado del Piso del Salón</td>
+                        <td><input type="checkbox" name="b_54" class="b"></td>
+                        <td><input type="checkbox" name="m_54" class="m"></td>
+                        <td><input type="checkbox" name="r_54" class="r"></td>
+                        <td><input type="checkbox" name="c_54" class="c"></td>
+                    </tr>
+                     <tr>
+                        <td>55</td>
+                        <td>Carrocería</td>
+                        <td>Martillos de Emergencia</td>
+                        <td><input type="checkbox" name="b_55" class="b"></td>
+                        <td><input type="checkbox" name="m_55" class="m"></td>
+                        <td><input type="checkbox" name="r_55" class="r"></td>
+                        <td><input type="checkbox" name="c_55" class="c"></td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>Carrocería</td>
+                        <td>Estado de Claraboyas</td>
+                        <td><input type="checkbox" name="b_56" class="b"></td>
+                        <td><input type="checkbox" name="m_56" class="m"></td>
+                        <td><input type="checkbox" name="r_56" class="r"></td>
+                        <td><input type="checkbox" name="c_56" class="c"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <label for="observaciones">Observaciones del checklist:</label>
+            <textarea id="observaciones-checklist" name="observaciones"></textarea>
+
+            <label for="tecnico">TÉCNICO:</label>
+            <input type="text" id="tecnico" name="tecnico">
+
+            <label for="administrador">ADMINISTRADOR:</label>
+            <input type="text" id="administrador" name="administrador">
+
+        
+    </section>
+    <button onclick="generatePDFInventario()">GENERAR</button>
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
