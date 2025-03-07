@@ -10,7 +10,11 @@ body {
 header {
     background-color: #d32f2f;
     color: white;
-    padding: 20px;
+    padding: 30px;
+}
+.titulo-independencia {
+    font-size: 16px; 
+    color: rgb(255, 255, 255); 
 }
 
 h1 {
