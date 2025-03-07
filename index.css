@@ -118,7 +118,7 @@ input[type="checkbox"].m:checked {
 }
 
 input[type="checkbox"].r:checked {
-    background-color: blue; /* Azul */
+    background-color: rgb(255, 149, 0); /* Naranja */
 }
 
 input[type="checkbox"].c:checked {
