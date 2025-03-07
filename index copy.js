@@ -49,6 +49,7 @@ function actualizarModelos() {
   });
 }
 
+
 async function generatePDFInventario() {
   event.preventDefault(); // Evita que el formulario se envíe
 
@@ -288,7 +289,7 @@ async function generatePDFInventario() {
   doc.text(`Observaciones del checklist: ${observacionesChecklist}`, 10, y, {
     maxWidth: 180,
   });
-  y += 10;
+  y += 30;
   doc.setFont("helvetica", "bold");
   doc.text("Firmas", 10, y);
   y += 10;
