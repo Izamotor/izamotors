@@ -250,7 +250,7 @@ function generatePDFInventario444() {
   doc.save(`Orden_Servicio_${numeroFolio}.pdf`);
 }
 
-function generatePDFInventario() {
+async function generatePDFInventario() {
   event.preventDefault(); // Evita que el formulario se envíe
 
   const { jsPDF } = window.jspdf;
@@ -260,6 +260,43 @@ function generatePDFInventario() {
     format: "a3",
   });
   let y = 10; // Coordenada Y inicial
+  // URL de la imagen alojada en Imgur
+  const imgURL = "https://i.imgur.com/9vjbzjl.png"; // Reemplaza con la URL real
+
+  // Función para convertir imagen a Base64
+  async function getBase64Image(url) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  // Agregar imagen al PDF
+  const imgBase64 = await getBase64Image(imgURL);
+  doc.addImage(imgBase64, "PNG", 10, 5, 60, 20); // Ajusta la posición y tamaño del logo
+
+  // Agregar texto a la derecha
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(12);
+  doc.text("Importador Directo", 210, 10, { align: "right" });
+  doc.setFontSize(10);
+  doc.text("Mecánica en General", 210, 15, { align: "right" });
+  doc.text("Venta de Repuestos", 210, 20, { align: "right" });
+  doc.text("Lima - Provincias", 210, 25, { align: "right" });
+
+  // Línea separadora
+  doc.setDrawColor(0);
+  doc.setLineWidth(0.5);
+  doc.line(10, y, 200, y); // Línea horizontal
+
+  y += 10; // Ajuste después de la línea
+
+  // Título del documento
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(16);
 
   // Recoger los valores del formulario
   const fecha = document.getElementById("fecha").value;
